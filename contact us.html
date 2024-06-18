@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r123/three.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Signika:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Kalam' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Trirong&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gentium+Plus&family=Trirong&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #threeDjs-bg {
+            position: fixed;
+            height: 100%;
+            width: 100%;
+            z-index: -1;
+        }
+
+        #navbar {
+            display: flex;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: auto;
+            padding: 5px;
+            backdrop-filter: blur(50px);
+            z-index: 2;
+        }
+
+        #navbar img {
+            width: 40%;
+            height: 75px;
+            object-fit: contain;
+            margin-right: 20%;
+        }
+
+        #navbar ul {
+            display: flex;
+            list-style: none;
+            justify-content: space-evenly;
+            width: 40%;
+            align-items: center;
+            text-align: center;
+            padding: 2px;
+        }
+
+        #navbar ul a {
+            font-family: trirong;
+            font-size: 6rem;
+            font-weight: bolder;
+            text-decoration: none;
+            color: black;
+            font-size: var(--font);
+        }
+
+        #navbar ul a:hover {
+            cursor: pointer;
+            color: blue;
+            transition: 0.8s;
+            font-size: 20px;
+        }
+
+
+        #header {
+            width: 100%;
+            display: flex;
+        }
+
+        #obj {
+            width: 50%;
+            height: 100%;
+            padding-top: 10%;
+            padding-left: 10%;
+            font-weight: 500;
+        }
+
+        #startimg {
+            width: 50%;
+            height: 60%;
+
+        }
+
+        .text13 {
+            font-size: 100%;
+            font-family: trirong;
+            font-weight: var(--weight);
+
+        }
+
+        #abt {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            margin: 5% auto;
+        }
+
+        .a1 {
+            width: 50%;
+        }
+
+        .abt1 {
+            width: 100%;
+        }
+
+        #ourmission {
+            width: 50%
+        }
+
+        .c1 {
+            width: 50%;
+        }
+
+        img {
+            object-fit: contain;
+        }
+
+        h1 {
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #achieve {
+            background-color: darkblue;
+        }
+
+        .a1 {
+            padding: 10px;
+        }
+
+        #footer {
+            position: relative;
+            top: 35px;
+            margin: 0;
+            width: 100%;
+            display: flex;
+            padding-top: 5%;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-size: 1.3rem;
+            background-color: transparent;
+            backdrop-filter: blur(500px);
+            color: black;
+            font-weight: 800;
+            height: 150px;
+            gap: 3%;
+        }
+        .text3{
+            width: 30%;
+            height: 100%;
+
+        }
+        button {
+            background-color: transparent;
+            padding: 10px;
+            border: 3px solid black;
+            background-color: rgb(104, 152, 240);
+            border-radius: 15px;
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        @media (max-width:700px) {
+            #navbar ul {
+                height: 20px;
+            }
+
+            #navbar ul li {
+                font-size: 0.65rem;
+                padding: 0;
+            }
+
+            #navbar ul li a {
+                padding-right: 10px;
+            }
+        }
+
+        #header {
+            width: 100%;
+            display: flex;
+        }
+
+        #obj {
+            width: 50%;
+            height: 100%;
+            padding-top: 10%;
+            padding-left: 10%;
+        }
+
+        #startimg {
+            width: 50%;
+            height: 60%;
+
+        }
+
+        .text1 {
+            font-size: 450%;
+            font-family: Kalam;
+            font-weight: var(--weight);
+
+        }
+
+        .contact {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 45%;
+
+        }
+
+        img {
+            width: 100%;
+
+            object-fit: contain;
+        }
+
+        .con {
+            width: 50%;
+            height: 50%;
+        }
+
+        .feedback {
+            width: 50%;
+        }
+
+        h1 {
+            color: white;
+            background-color: darkblue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .btn {
+            color: black;
+            background-color: rgb(248, 221, 221);
+            border-radius: 2px;
+            font-size: 1.5rem;
+            font-weight: bolder;
+
+            border-radius: 10px;
+        }
+
+        .btn:hover {
+            cursor: pointer;
+            color: darkblue;
+        }
+
+        #footer {
+            position: relative;
+            top: 35px;
+            margin: 0;
+            width: 100%;
+            display: flex;
+            padding-top: 5%;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-size: 1.3rem;
+            background-color: transparent;
+            backdrop-filter: blur(500px);
+            color: black;
+            font-weight: 800;
+            height: 150px;
+            gap: 3%;
+        }
+        .text3{
+            width: 30%;
+            height: 100%;
+
+        }
+        button {
+            background-color: transparent;
+            padding: 10px;
+            border: 3px solid black;
+            background-color: rgb(104, 152, 240);
+            border-radius: 15px;
+            font-size: 30px;
+            font-weight: bold;
+        }
+        @media (max-width: 700px) {
+            .contact {
+                display: block;
+            }
+
+            .con,
+            .feedback {
+                width: 100%;
+                height: 50%;
+            }
+
+            #map {
+                width: 100%;
+            }
+
+            #navbar ul {
+                height: 25px;
+            }
+
+            #navbar ul li {
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="threeDjs-bg"></div>
+    <nav id="navbar">
+        <img id="wellness-logo" src="final2.png" />
+        <ul>
+            <a href="index.html">
+                <li>HOME</li>
+            </a>
+            <a href="about us.html">
+                <li>OUR MISSION</li>
+            </a>
+            <a href="services.html">
+                <li>SERVICES</li>
+            </a>
+            <a href="contact us.html">
+                <li>CONTACT US</li>
+            </a>
+        </ul>
+    </nav>
+    <br>
+    <br>
+        <div id="header">
+
+            <div id="obj">
+                <span class="text1" style="--weight: 1800px">
+                    <p class="text13">DR WELLNESS</p>
+                </span>
+                <span class="text1" style="--weight: 900px">
+                    <p class="text13">Revitalize Your Mind, Renew Your Body</p>
+                </span>
+            </div>
+            <div id="startimg"><img src="medical-5459654.svg"></div>
+        <center>
+        </div>
+        <br>
+        <br>
+        <div class="contact">
+
+            <div id="map" style="width: 100%"><iframe width="95%" height="500" frameborder="0" scrolling="no"
+                    marginheight="0" marginwidth="0"
+                    src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=IIIT%20nagpur+(Dr%20Wellnes)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a
+                        href="https://www.maps.ie/distance-area-calculator.html">distance maps</a></iframe>
+            </div>
+
+            <div class="con">
+                <img src="Contact us/contact us.png" alt="">
+            </div>
+            <div class="con">
+                <img src="Contact us/details.png" alt="">
+            </div>
+        </div>
+        <h1>Reviews</h1>
+        <div class="contact">
+            <div class="feedback">
+                <img src="Contact us/feedback11.png" alt="" />
+            </div>
+            <div class="feedback">
+                <img src="Contact us/feedback22.png" alt="" />
+            </div>
+        </div>
+        
+        <br>
+        <br>
+        <footer id="footer"> <span class="text3" >Contact us on 9934561200 Email :- drwellnesscentre12@gmail.com</span>
+            <span class="text3">Developed by:- Tanisha Mehta, Nikhil Mishra, Divya Thakkar and Saurabh Shukla.</span>
+            <span class="text3">Want to share your thoughts with us click here to fill our feedback form
+            <a href="feedback.html"><button>FEEDBACK</button></a></span>
+        </footer>
+    </center>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.clouds.min.js"></script>
+    <script>
+        VANTA.CLOUDS({
+            el: document.getElementById("threeDjs-bg"),
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            speed: 0.5,
+            cloudShadowColor: 0x3d3d72,
+        });
+    </script>
+
+</body>
+
+</html>
